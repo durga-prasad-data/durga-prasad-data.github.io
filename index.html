@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Durga Prasad's Data Analyst Portfolio featuring data analytics projects, dashboards, and technical skills.">
+
+  <meta name="description"
+        content="Durga Prasad's Data Analyst Portfolio featuring data analytics projects, skills, and an Uber ride analytics dashboard.">
+
   <title>Durga Prasad | Data Analyst Portfolio</title>
 
   <style>
@@ -40,11 +43,13 @@
       margin: auto;
     }
 
+    /* Navigation */
+
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(11, 17, 32, 0.95);
+      z-index: 100;
+      background: rgba(11, 17, 32, 0.96);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(12px);
     }
@@ -58,7 +63,7 @@
     }
 
     .logo {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: bold;
       color: var(--accent);
     }
@@ -70,23 +75,59 @@
       list-style: none;
     }
 
+    .nav-links a {
+      transition: color 0.2s;
+    }
+
     .nav-links a:hover {
       color: var(--accent);
     }
 
+    /* General sections */
+
     section {
       padding: 80px 0;
-      scroll-margin-top: 70px;
+      scroll-margin-top: 75px;
     }
 
+    h2 {
+      font-size: clamp(28px, 4vw, 38px);
+      margin-bottom: 12px;
+    }
+
+    h2 span,
+    h1 span {
+      color: var(--accent);
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    /* Home section */
+
     .hero {
-      min-height: 520px;
+      min-height: 570px;
       display: flex;
       align-items: center;
     }
 
     .hero-content {
-      max-width: 750px;
+      max-width: 760px;
+    }
+
+    .profile-avatar {
+      width: 155px;
+      height: 155px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin-bottom: 25px;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
     }
 
     .eyebrow {
@@ -100,14 +141,15 @@
     h1 {
       font-size: clamp(38px, 7vw, 68px);
       line-height: 1.15;
-      margin: 16px 0;
+      margin: 15px 0;
     }
 
-    h1 span, h2 span {
-      color: var(--accent);
+    .hero-subtitle {
+      font-size: clamp(22px, 4vw, 32px);
+      margin-bottom: 15px;
     }
 
-    .hero p, .section-intro {
+    .hero p {
       color: var(--muted);
       max-width: 680px;
     }
@@ -141,16 +183,12 @@
       border-color: var(--border);
     }
 
-    h2 {
-      font-size: clamp(28px, 4vw, 38px);
-      margin-bottom: 12px;
-    }
+    /* About */
 
-    .section-intro {
-      margin-bottom: 30px;
-    }
-
-    .about-box, .project-card, .skill-card, .contact-box {
+    .about-box,
+    .project-card,
+    .skill-card,
+    .contact-box {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -161,21 +199,39 @@
       color: var(--muted);
     }
 
+    /* Skills */
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
 
+    .skill-card {
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .skill-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
     .skill-card h3 {
-      margin-bottom: 8px;
       color: var(--accent);
+      margin-bottom: 8px;
     }
 
     .skill-card p {
       color: var(--muted);
       font-size: 14px;
     }
+
+    /* Projects */
 
     .projects-grid {
       display: grid;
@@ -184,145 +240,13 @@
     }
 
     .project-card h3 {
-      font-size: 23px;
-      margin-bottom: 8px;
+      font-size: 24px;
+      margin-bottom: 10px;
     }
 
-    .project-card > p {
+    .project-description {
       color: var(--muted);
       margin-bottom: 18px;
-    }
-
-    .dashboard {
-      margin: 22px 0;
-      padding: 20px;
-      background: #0b1425;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .dashboard-title {
-      font-size: 18px;
-      margin-bottom: 16px;
-    }
-
-    .kpis {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .kpi {
-      padding: 12px 8px;
-      background: #192940;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .kpi strong {
-      display: block;
-      font-size: clamp(15px, 2vw, 22px);
-      color: var(--accent);
-    }
-
-    .kpi small {
-      display: block;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .chart-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .chart {
-      background: #141e32;
-      padding: 16px;
-      border-radius: 10px;
-      min-width: 0;
-    }
-
-    .chart h4 {
-      margin-bottom: 14px;
-      font-size: 14px;
-    }
-
-    .bars {
-      height: 130px;
-      display: flex;
-      align-items: end;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .bar {
-      flex: 1;
-      min-width: 0;
-      background: linear-gradient(#38bdf8, #2563eb);
-      border-radius: 4px 4px 0 0;
-      position: relative;
-      transition: opacity 0.2s;
-    }
-
-    .bar:hover {
-      opacity: 0.65;
-    }
-
-    .bar-labels {
-      display: flex;
-      justify-content: space-between;
-      gap: 3px;
-      font-size: 10px;
-      color: var(--muted);
-      padding-top: 8px;
-    }
-
-    .vehicle-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 14px 0;
-      font-size: 13px;
-    }
-
-    .vehicle-name {
-      width: 90px;
-      color: var(--muted);
-    }
-
-    .vehicle-track {
-      flex: 1;
-      height: 10px;
-      background: #25334a;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .vehicle-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 20px;
-    }
-
-    .project-details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin: 20px 0;
-    }
-
-    .project-details h4 {
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .project-details ul {
-      padding-left: 20px;
-      color: var(--muted);
-      font-size: 14px;
     }
 
     .tags {
@@ -334,20 +258,94 @@
 
     .tag {
       font-size: 12px;
-      padding: 5px 10px;
+      padding: 5px 11px;
       border-radius: 20px;
       background: #20334c;
       color: #bae6fd;
     }
 
+    /* Actual Uber dashboard screenshot */
+
+    .dashboard-container {
+      margin: 25px 0;
+      padding: 18px;
+      background: #0b1425;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .dashboard-title {
+      font-size: 19px;
+      margin-bottom: 15px;
+    }
+
+    .dashboard-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: contain;
+      background: #ffffff;
+    }
+
+    .image-caption {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .project-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 25px 0;
+    }
+
+    .project-details h4 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .project-details ul {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .project-details li {
+      margin-bottom: 7px;
+    }
+
+    .notice {
+      background: #1c2a40;
+      border-left: 4px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 5px;
+      color: var(--muted);
+      font-size: 14px;
+      margin: 20px 0;
+    }
+
+    /* Contact */
+
     .contact-box {
       text-align: center;
+      padding: 40px 25px;
     }
 
     .contact-box p {
       color: var(--muted);
-      margin-bottom: 22px;
+      margin: 12px auto 22px;
+      max-width: 600px;
     }
+
+    .github-link {
+      overflow-wrap: anywhere;
+      color: var(--accent);
+    }
+
+    /* Footer */
 
     footer {
       text-align: center;
@@ -357,13 +355,15 @@
       font-size: 13px;
     }
 
+    /* Mobile responsiveness */
+
     @media (max-width: 800px) {
       .skills-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .kpis {
-        grid-template-columns: repeat(3, 1fr);
+      .hero {
+        min-height: 500px;
       }
     }
 
@@ -383,18 +383,28 @@
         padding: 55px 0;
       }
 
+      .profile-avatar {
+        width: 125px;
+        height: 125px;
+      }
+
       .skills-grid,
-      .chart-grid,
       .project-details {
         grid-template-columns: 1fr;
       }
 
-      .kpis {
-        grid-template-columns: repeat(2, 1fr);
+      .about-box,
+      .project-card,
+      .skill-card {
+        padding: 20px;
       }
 
-      .dashboard {
-        padding: 12px;
+      .dashboard-container {
+        padding: 8px;
+      }
+
+      .dashboard-title {
+        font-size: 16px;
       }
     }
   </style>
@@ -402,9 +412,11 @@
 
 <body>
 
+  <!-- Navigation -->
   <header>
     <nav class="container">
-      <a class="logo" href="#home">DP.</a>
+      <a class="logo" href="#home" aria-label="Go to homepage">DP.</a>
+
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -416,258 +428,289 @@
   </header>
 
   <main>
+
+    <!-- Home -->
     <section class="hero container" id="home">
       <div class="hero-content">
+
+        <!-- Your uploaded avatar -->
+        <img
+          src="avatar.png"
+          alt="Durga Prasad profile avatar"
+          class="profile-avatar"
+          width="155"
+          height="155"
+        >
+
         <div class="eyebrow">Data Analytics Portfolio</div>
-        <h1>Hello, I'm <span>Durga Prasad</span></h1>
-        <h2>Turning Data Into <span>Insights</span></h2>
+
+        <h1>
+          Hello, I'm <span>Durga Prasad</span>
+        </h1>
+
+        <h2 class="hero-subtitle">
+          Aspiring <span>Data Analyst</span>
+        </h2>
+
         <p>
-          I am building my skills in data analytics and data visualization.
-          I enjoy exploring datasets, identifying patterns, and presenting
-          information through clear, meaningful dashboards.
+          I am developing my skills in data analytics and data
+          visualization. I enjoy exploring datasets, identifying patterns,
+          cleaning data, and presenting information through clear,
+          meaningful dashboards.
         </p>
 
         <div class="actions">
-          <a class="btn" href="#projects">Explore Projects</a>
-          <a class="btn btn-outline"
-             href="https://github.com/durga-prasad-data"
-             target="_blank" rel="noopener noreferrer">
-            Visit GitHub
+          <a class="btn" href="#projects">Explore My Projects</a>
+
+          <a
+            class="btn btn-outline"
+            href="https://github.com/durga-prasad-data"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit My GitHub
           </a>
         </div>
+
       </div>
     </section>
 
+    <!-- About Me -->
     <section id="about">
       <div class="container">
+
         <h2>About <span>Me</span></h2>
+
         <p class="section-intro">
-          My introduction and what I aim to achieve in data analytics.
+          A little about my background, interests, and career goals.
         </p>
 
         <div class="about-box">
           <p>
-            Hello! I'm Durga Prasad, an aspiring Data Analyst interested in
-            understanding data and communicating useful insights.
-            My portfolio showcases analytics projects, dashboard concepts,
-            and the technical skills I am developing.
+            Hello! I'm Durga Prasad, an aspiring Data Analyst interested
+            in using data to understand business performance and support
+            informed decision-making.
           </p>
+
           <br>
+
           <p>
-            My goal is to turn raw data into information that helps people
-            understand performance, identify trends, and make informed
-            decisions. I am continuously learning through practical projects.
+            I am building my analytical skills through practical exercises
+            and projects. I am particularly interested in data cleaning,
+            data analysis, dashboard creation, and communicating insights
+            clearly.
+          </p>
+
+          <br>
+
+          <p>
+            My goal is to grow as a Data Analyst by improving my technical
+            skills, solving real-world problems, and learning how to
+            translate data into useful business information.
           </p>
         </div>
+
       </div>
     </section>
 
+    <!-- Skills -->
     <section id="skills">
       <div class="container">
-        <h2>Technical <span>Skills</span></h2>
+
+        <h2>My <span>Skills</span></h2>
+
         <p class="section-intro">
-          Add the tools you have actually learned and can demonstrate.
+          Tools and concepts relevant to my data analytics learning journey.
         </p>
 
         <div class="skills-grid">
+
           <div class="skill-card">
-            <h3>Excel</h3>
-            <p>Data cleaning, formulas, PivotTables, charts and reporting.</p>
+            <div class="skill-icon" aria-hidden="true">📊</div>
+            <h3>Microsoft Excel</h3>
+            <p>
+              Data cleaning, formulas, PivotTables, charts,
+              conditional formatting, and reporting.
+            </p>
           </div>
 
           <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">📈</div>
             <h3>Power BI</h3>
-            <p>Power Query, data modeling, visualizations and dashboards.</p>
+            <p>
+              Power Query, data transformation, visualizations,
+              data modeling, and dashboard design.
+            </p>
           </div>
 
           <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🗃️</div>
             <h3>SQL</h3>
-            <p>Data retrieval, filtering, joins, aggregation and analysis.</p>
+            <p>
+              SELECT queries, filtering, joins, aggregate functions,
+              GROUP BY, and data retrieval.
+            </p>
           </div>
 
           <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🐍</div>
             <h3>Python</h3>
-            <p>Data analysis using Python and pandas.</p>
+            <p>
+              Python fundamentals and introductory data analysis
+              using pandas.
+            </p>
           </div>
+
         </div>
       </div>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
       <div class="container">
+
         <h2>Featured <span>Project</span></h2>
+
         <p class="section-intro">
-          A ride-booking analytics dashboard inspired by the Uber dashboard
-          reference.
+          Explore my data analytics project and dashboard work.
         </p>
 
         <div class="projects-grid">
+
           <article class="project-card">
+
             <h3>Uber Ride Analytics Dashboard</h3>
-            <p>
-              An interactive dashboard concept for exploring ride completion,
-              cancellations, revenue, distance, vehicle categories, and
-              pickup and drop-off locations.
+
+            <p class="project-description">
+              A ride-booking analytics dashboard focused on ride status,
+              revenue, distance, vehicle categories, monthly trends,
+              and pickup and drop-off locations.
             </p>
 
             <div class="tags">
-              <span class="tag">Data Visualization</span>
-              <span class="tag">Business Analytics</span>
+              <span class="tag">Data Analytics</span>
               <span class="tag">Dashboard Design</span>
+              <span class="tag">Data Visualization</span>
+              <span class="tag">Business Insights</span>
             </div>
 
-            <!-- Illustrative preview values based on the reference image.
-                 Replace them with verified figures from your dataset. -->
-            <div class="dashboard">
-              <div class="dashboard-title">
-                Ride Performance Overview
-              </div>
+            <!-- Your actual uploaded Uber dashboard screenshot -->
+            <div class="dashboard-container">
 
-              <div class="kpis">
-                <div class="kpi">
-                  <strong>93K</strong>
-                  <small>Completed Rides</small>
-                </div>
-                <div class="kpi">
-                  <strong>57K</strong>
-                  <small>Lost Rides</small>
-                </div>
-                <div class="kpi">
-                  <strong>52M</strong>
-                  <small>Revenue</small>
-                </div>
-                <div class="kpi">
-                  <strong>2.51M</strong>
-                  <small>Total Distance</small>
-                </div>
-                <div class="kpi">
-                  <strong>24.64</strong>
-                  <small>Avg. Distance</small>
-                </div>
-              </div>
+              <h4 class="dashboard-title">
+                Uber Ride Performance Dashboard
+              </h4>
 
-              <div class="chart-grid">
-                <div class="chart">
-                  <h4>Monthly Ride Trend (Illustrative)</h4>
-                  <div class="bars" aria-label="Illustrative monthly ride bars">
-                    <div class="bar" style="height:95%" title="January"></div>
-                    <div class="bar" style="height:70%" title="February"></div>
-                    <div class="bar" style="height:84%" title="March"></div>
-                    <div class="bar" style="height:79%" title="April"></div>
-                    <div class="bar" style="height:82%" title="May"></div>
-                    <div class="bar" style="height:80%" title="June"></div>
-                    <div class="bar" style="height:83%" title="July"></div>
-                    <div class="bar" style="height:77%" title="August"></div>
-                    <div class="bar" style="height:75%" title="September"></div>
-                    <div class="bar" style="height:82%" title="October"></div>
-                    <div class="bar" style="height:79%" title="November"></div>
-                    <div class="bar" style="height:76%" title="December"></div>
-                  </div>
-                  <div class="bar-labels">
-                    <span>Jan</span><span>Apr</span><span>Aug</span><span>Dec</span>
-                  </div>
-                </div>
+              <img
+                src="Uber%20DashBoard.png"
+                alt="Uber dashboard showing completed rides, lost rides,
+                     revenue, total distance, average distance,
+                     monthly trends, vehicle categories, and locations"
+                class="dashboard-image"
+                loading="lazy"
+              >
 
-                <div class="chart">
-                  <h4>Rides by Vehicle Category</h4>
+              <p class="image-caption">
+                Dashboard screenshot provided for this portfolio project.
+              </p>
 
-                  <div class="vehicle-row">
-                    <span class="vehicle-name">Auto</span>
-                    <div class="vehicle-track">
-                      <div class="vehicle-fill" style="width:90%"></div>
-                    </div>
-                  </div>
-
-                  <div class="vehicle-row">
-                    <span class="vehicle-name">Bike</span>
-                    <div class="vehicle-track">
-                      <div class="vehicle-fill" style="width:80%"></div>
-                    </div>
-                  </div>
-
-                  <div class="vehicle-row">
-                    <span class="vehicle-name">Go Mini</span>
-                    <div class="vehicle-track">
-                      <div class="vehicle-fill" style="width:72%"></div>
-                    </div>
-                  </div>
-
-                  <div class="vehicle-row">
-                    <span class="vehicle-name">Go Sedan</span>
-                    <div class="vehicle-track">
-                      <div class="vehicle-fill" style="width:65%"></div>
-                    </div>
-                  </div>
-
-                  <div class="vehicle-row">
-                    <span class="vehicle-name">Uber XL</span>
-                    <div class="vehicle-track">
-                      <div class="vehicle-fill" style="width:15%"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div class="project-details">
+
               <div>
                 <h4>Project Objectives</h4>
+
                 <ul>
-                  <li>Monitor ride completion and cancellations.</li>
-                  <li>Review revenue and distance metrics.</li>
-                  <li>Compare ride categories and monthly trends.</li>
-                  <li>Explore pickup and drop-off locations.</li>
+                  <li>Review completed and cancelled ride metrics.</li>
+                  <li>Understand revenue and distance indicators.</li>
+                  <li>Compare monthly ride patterns.</li>
+                  <li>Examine vehicle category performance.</li>
+                  <li>Review pickup and drop-off locations.</li>
                 </ul>
               </div>
 
               <div>
-                <h4>Analysis Approach</h4>
+                <h4>Analytics Concepts</h4>
+
                 <ul>
-                  <li>Inspect and clean the source dataset.</li>
-                  <li>Validate KPIs against the underlying data.</li>
-                  <li>Choose visuals that answer business questions.</li>
-                  <li>Summarize findings after verification.</li>
+                  <li>Key performance indicators (KPIs).</li>
+                  <li>Trend analysis over time.</li>
+                  <li>Category comparisons using charts.</li>
+                  <li>Location-based performance summaries.</li>
+                  <li>Dashboard presentation and readability.</li>
                 </ul>
               </div>
+
             </div>
 
-            <p>
-              <strong>Important:</strong> The dashboard figures and bar
-              proportions above are illustrative. Replace or validate them
-              against your actual dataset before presenting this project
-              in an interview.
-            </p>
+            <div class="notice">
+              <strong>Project accuracy:</strong>
+              This portfolio displays your supplied dashboard screenshot.
+              Describe the tools you actually used, the work you personally
+              completed, and findings you verified from the underlying
+              dataset. Do not claim additional analysis without evidence.
+            </div>
 
             <div class="actions">
-              <a class="btn"
-                 href="https://github.com/durga-prasad-data"
-                 target="_blank" rel="noopener noreferrer">
+              <a
+                class="btn"
+                href="https://github.com/durga-prasad-data"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 View GitHub Profile
               </a>
             </div>
+
           </article>
+
         </div>
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
       <div class="container">
+
         <div class="contact-box">
+
           <h2>Let's <span>Connect</span></h2>
+
           <p>
-            Interested in my projects or want to discuss data analytics?
-            Visit my GitHub profile to explore my work.
+            Interested in my projects or data analytics work?
+            Visit my GitHub profile to explore my repositories and
+            follow my learning journey.
           </p>
-          <a class="btn"
-             href="https://github.com/durga-prasad-data"
-             target="_blank" rel="noopener noreferrer">
-            GitHub: durga-prasad-data
+
+          <a
+            class="btn"
+            href="https://github.com/durga-prasad-data"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit GitHub Profile
           </a>
+
+          <p style="margin-top: 18px;">
+            GitHub:
+            <a
+              class="github-link"
+              href="https://github.com/durga-prasad-data"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github.com/durga-prasad-data
+            </a>
+          </p>
+
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>
@@ -678,6 +721,7 @@
   </footer>
 
   <script>
+    // Automatically update the copyright year.
     document.getElementById("year").textContent =
       new Date().getFullYear();
   </script>
